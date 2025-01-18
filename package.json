@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@supabase/supabase-js": "^2.47.16",
+    "dotenv": "^16.4.7",
+    "vite": "^6.0.7"
+  },
+  "name": "jugaad",
+  "version": "1.0.0",
+  "description": "HELLO bhaiyo aur unki behno kuch bhi dikkat ho apne ko btana, mai kroonga nhi",
+  "main": "database.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinx-web/TEAM-JUGAAD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jinx-web/TEAM-JUGAAD/issues"
+  },
+  "homepage": "https://github.com/jinx-web/TEAM-JUGAAD#readme"
+}
