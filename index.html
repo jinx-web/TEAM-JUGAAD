@@ -1,50 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco-Friendly Product Recommendation System - Sign Up/Login</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoEssentials</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="form-container" id="login-form-container">
-            <h2>Login</h2>
-            <form id="login-form" onsubmit="return validateLogin()">
-                <label for="login-email">Email</label>
-                <input type="email" id="login-email" name="email" required>
-                
-                <label for="login-password">Password</label>
-                <input type="password" id="login-password" name="password" required>
-                
-                <button type="submit">Login</button>
-                
-                <p>Don't have an account? <a href="javascript:void(0);" onclick="toggleForm('signup')">Sign up here</a></p>
-            </form>
-        </div>
-
-        <div class="form-container" id="signup-form-container">
-            <h2>Sign Up</h2>
-            <form id="signup-form" onsubmit="return validateSignUp()">
-                <label for="signup-name">Name</label>
-                <input type="text" id="signup-name" name="name" required>
-                
-                <label for="signup-email">Email</label>
-                <input type="email" id="signup-email" name="email" required>
-                
-                <label for="signup-password">Password</label>
-                <input type="password" id="signup-password" name="password" required>
-                
-                <label for="signup-confirm-password">Confirm Password</label>
-                <input type="password" id="signup-confirm-password" name="confirm-password" required>
-                
-                <button type="submit">Sign Up</button>
-                
-                <p>Already have an account? <a href="javascript:void(0);" onclick="toggleForm('login')">Login here</a></p>
-            </form>
-        </div>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">EcoEssentials</div>
+    <div class="nav_search ">
+        <select class="search-select">
+            <option>All</option>
+            <option>Women</option>
+            <option>Daily Products</option>
+        </select>
+        <input placeholder="Search" class="search-input">
+        <div class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div> 
     </div>
+    <nav>
+      <ul class="nav-links">
+        <!-- <li><a href="#features">Features</a></li> -->
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="#seller">Become a Seller</a></li>
+      </ul>
+    </nav>
 
-    <script src="script.js"></script>
+  </header>
+
+  
+
+  <!-- Hero Section -->
+   <div class="glacier">
+    <video id="background-video" autoplay muted loop>
+        <source src="videos/glacier.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h1><span class="auto-type"></span></h1>
+   </div>
+   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+   <script>
+    var typed = new Typed(".auto-type",{
+      strings:["Melting Glaciers, Warming Futures.","Save the Ice, Save the Earth."],
+      typeSpeed:100,
+      backSpeed:100,
+      looped:true
+    })
+   </script>
+  <!-- <section class="hero">
+    <h1>Discover Eco-Friendly Products Effortlessly</h1>
+    <p>Make smarter choices for a sustainable future with personalized recommendations.</p>
+    <button id="getStartedBtn">Get Started(login)</button>
+  </section> -->
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2>Why Choose Us?</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <h3>Personalized Recommendations</h3>
+        <p>..</p>
+      </div>
+      <div class="card">
+        <h3>Sustainability Metrics</h3>
+        <p>..</p>
+      </div>
+      <div class="card">
+        <h3>Carbon Footprint Calculator</h3>
+        <p>..</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 EcoEssentials. All rights reserved.</p>
+    <p>Made with ❤️ for sustainability.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
