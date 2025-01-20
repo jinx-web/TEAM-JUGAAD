@@ -5,3 +5,4 @@
 <li>Allows sellers to sell their low carbon level products, and thus reach a wider audience.</li>
 </li>
 </ul>
+<img src = "WhatsApp Image 2025-01-20 at 17.57.02.png">eco essentials</img>
