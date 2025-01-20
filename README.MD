@@ -24,7 +24,7 @@
 </li>
 </ul>
 <br>
-<h3>Team members: </h3>
+<h2>Team members: </h2>
 <ul>
 <li>Prisha Gangwar(Team lead)</li>
 <li>Jignesh Giri(Technical lead)</li>
@@ -32,7 +32,13 @@
 <li>Khushi Mittal</li>
 <li>Sujal Panda</li>
 </ul>
-
+<h2>Challenges or learnings:</h2>
+<ul>
+<li>We faced multiple challenges throughout our journey. The most prominent of which was the process of executing and coding our ideas.</li>
+<li>Given our limited knowledge about backend website development, and the process of integration, it was difficult to execute things the way we wanted to.</li>
+<li>Despite the challenges, it was an eye-opening experience and we learnt about the skills that we need to develop for website development.</li>
+<li>We also learnt how to collaborate efficiently, and work through problems together as a team.</li>
+</ul>
 
 
 
