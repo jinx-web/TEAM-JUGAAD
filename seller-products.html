@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Seller Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand logo-link" href="index.html">
+                    <span class="eco-text">Eco</span><span class="text-success">Essentials</span>
+                </a>
+                <span class="ms-3 text-muted">Seller Dashboard</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="ms-auto d-flex align-items-center">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-success dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown">
+                                <i class="fas fa-user-circle me-2"></i>
+                                <span id="sellerName">Seller Name</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#" onclick="editProfile()"><i class="fas fa-user-edit me-2"></i>Edit Profile</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="viewSettings()"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="margin-top: 56px; position: fixed; height: calc(100vh - 56px); overflow-y: auto;">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="seller-dashboard.html">
+                                <i class="fas fa-home me-2"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="seller-products.html">
+                                <i class="fas fa-box me-2"></i>
+                                Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="seller-orders.html">
+                                <i class="fas fa-shopping-cart me-2"></i>
+                                Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="seller-analytics.html">
+                                <i class="fas fa-chart-line me-2"></i>
+                                Analytics
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Products</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button class="btn btn-outline-success me-2" onclick="exportProducts()">
+                            <i class="fas fa-download me-2"></i>Export
+                        </button>
+                        <button class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#bulkUploadModal">
+                            <i class="fas fa-upload me-2"></i>Bulk Upload
+                        </button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                            <i class="fas fa-plus me-2"></i>Add Product
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Categories -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button class="btn btn-outline-success active">All (24)</button>
+                                    <button class="btn btn-outline-success">Home & Living (10)</button>
+                                    <button class="btn btn-outline-success">Fashion (5)</button>
+                                    <button class="btn btn-outline-success">Beauty (6)</button>
+                                    <button class="btn btn-outline-success">Food (3)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Table -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Stock</th>
+                                        <th>Organic Certificate</th>
+                                        <th>Made In</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://via.placeholder.com/40" class="rounded me-2" alt="">
+                                                <span>Eco-Friendly Water Bottle</span>
+                                            </div>
+                                        </td>
+                                        <td>Home & Living</td>
+                                        <td>₹599</td>
+                                        <td>45</td>
+                                        <td><span class="badge bg-success">Verified</span></td>
+                                        <td>India</td>
+                                        <td><span class="badge bg-success">Active</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" onclick="editProduct(1)">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct(1)">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProductForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Product Name</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Category</label>
+                                <select class="form-select" required>
+                                    <option value="">Select Category</option>
+                                    <option>Home & Living</option>
+                                    <option>Fashion</option>
+                                    <option>Beauty</option>
+                                    <option>Food</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Price (₹)</label>
+                                <input type="number" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Stock Quantity</label>
+                                <input type="number" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Made In</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Shop Location</label>
+                                <div id="shopLocationMap" style="height: 200px;" class="mb-2"></div>
+                                <input type="text" id="shopLatitude" class="form-control mb-2" placeholder="Latitude" readonly>
+                                <input type="text" id="shopLongitude" class="form-control" placeholder="Longitude" readonly>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Product Images</label>
+                            <input type="file" class="form-control" multiple accept="image/*">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="isOrganic">
+                                <label class="form-check-label" for="isOrganic">This is an organic product</label>
+                            </div>
+                        </div>
+                        <div class="mb-3" id="organicCertificateUpload" style="display: none;">
+                            <label class="form-label">Organic Certificate</label>
+                            <input type="file" class="form-control" accept=".pdf,.jpg,.png">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="addProductForm" class="btn btn-success">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Upload Modal -->
+    <div class="modal fade" id="bulkUploadModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bulk Upload Products</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bulkUploadForm">
+                        <div class="mb-3">
+                            <label class="form-label">Upload CSV File</label>
+                            <input type="file" class="form-control" accept=".csv" required>
+                        </div>
+                        <div class="mb-3">
+                            <a href="#" class="text-success"><i class="fas fa-download me-2"></i>Download Template</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="bulkUploadForm" class="btn btn-success">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+    <script src="seller-dashboard.js"></script>
+    <script>
+        function logout() {
+            // Clear session storage
+            sessionStorage.clear();
+            // Clear local storage
+            localStorage.clear();
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }
+
+        // Toggle organic certificate upload
+        document.getElementById('isOrganic').addEventListener('change', function() {
+            document.getElementById('organicCertificateUpload').style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Initialize map
+        mapboxgl.accessToken = 'YOUR_MAPBOX_TOKEN';
+        const map = new mapboxgl.Map({
+            container: 'shopLocationMap',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [78.9629, 20.5937], // India center
+            zoom: 4
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        // Click on map to set location
+        map.on('click', (e) => {
+            const { lng, lat } = e.lngLat;
+            document.getElementById('shopLatitude').value = lat;
+            document.getElementById('shopLongitude').value = lng;
+            
+            // Add marker
+            const marker = new mapboxgl.Marker()
+                .setLngLat([lng, lat])
+                .addTo(map);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get seller name from session/localStorage
+            const sellerName = localStorage.getItem('sellerName') || sessionStorage.getItem('sellerName');
+            if (sellerName) {
+                document.getElementById('sellerName').textContent = sellerName;
+            }
+        });
+    </script>
+</body>
+</html>

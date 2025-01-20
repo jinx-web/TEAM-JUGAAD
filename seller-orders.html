@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - Seller Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand logo-link" href="index.html">
+                    <span class="eco-text">Eco</span><span class="text-success">Essentials</span>
+                </a>
+                <span class="ms-3 text-muted">Seller Dashboard</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="ms-auto d-flex align-items-center">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-success dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown">
+                                <i class="fas fa-user-circle me-2"></i>
+                                <span id="sellerName">Seller Name</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#" onclick="editProfile()"><i class="fas fa-user-edit me-2"></i>Edit Profile</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="viewSettings()"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="margin-top: 56px; position: fixed; height: calc(100vh - 56px); overflow-y: auto;">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="seller-dashboard.html">
+                                <i class="fas fa-home me-2"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="seller-products.html">
+                                <i class="fas fa-box me-2"></i>
+                                Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="seller-orders.html">
+                                <i class="fas fa-shopping-cart me-2"></i>
+                                Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="seller-analytics.html">
+                                <i class="fas fa-chart-line me-2"></i>
+                                Analytics
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Orders</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button class="btn btn-outline-success me-2" onclick="exportOrders()">
+                            <i class="fas fa-download me-2"></i>Export Orders
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                This Month
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Last Week</a></li>
+                                <li><a class="dropdown-item" href="#">Last Month</a></li>
+                                <li><a class="dropdown-item" href="#">Last 3 Months</a></li>
+                                <li><a class="dropdown-item" href="#">Custom Range</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Stats -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">Pending Orders</h6>
+                                <h3 class="card-text text-warning">12</h3>
+                                <small class="text-muted">4 need attention</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">Processing</h6>
+                                <h3 class="card-text text-primary">8</h3>
+                                <small class="text-muted">2 shipping today</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">Completed</h6>
+                                <h3 class="card-text text-success">45</h3>
+                                <small class="text-muted">This month</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title text-muted">Cancelled</h6>
+                                <h3 class="card-text text-danger">2</h3>
+                                <small class="text-muted">1.2% rate</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#" onclick="filterOrders('all')">All Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="filterOrders('pending')">Pending</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="filterOrders('processing')">Processing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="filterOrders('completed')">Completed</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="filterOrders('cancelled')">Cancelled</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Products</th>
+                                        <th>Total</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#ORD001</td>
+                                        <td>
+                                            <div>John Doe</div>
+                                            <small class="text-muted">john@example.com</small>
+                                        </td>
+                                        <td>
+                                            <div>Eco-Friendly Water Bottle x2</div>
+                                            <small class="text-muted">2 items</small>
+                                        </td>
+                                        <td>₹1,198</td>
+                                        <td>
+                                            <div>19 Jan, 2025</div>
+                                            <small class="text-muted">11:30 AM</small>
+                                        </td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-success me-1" onclick="processOrder('ORD001')">Process</button>
+                                            <button class="btn btn-sm btn-outline-primary" onclick="viewOrderDetails('ORD001')">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD002</td>
+                                        <td>
+                                            <div>Jane Smith</div>
+                                            <small class="text-muted">jane@example.com</small>
+                                        </td>
+                                        <td>
+                                            <div>Bamboo Toothbrush x3</div>
+                                            <small class="text-muted">3 items</small>
+                                        </td>
+                                        <td>₹897</td>
+                                        <td>
+                                            <div>19 Jan, 2025</div>
+                                            <small class="text-muted">10:15 AM</small>
+                                        </td>
+                                        <td><span class="badge bg-primary">Processing</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-success me-1" onclick="shipOrder('ORD002')">Ship</button>
+                                            <button class="btn btn-sm btn-outline-primary" onclick="viewOrderDetails('ORD002')">View</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h6>Order Information</h6>
+                            <p class="mb-1">Order ID: #ORD001</p>
+                            <p class="mb-1">Date: 19 Jan, 2025</p>
+                            <p class="mb-1">Status: <span class="badge bg-warning">Pending</span></p>
+                            <p class="mb-1">Payment Method: Credit Card</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Customer Information</h6>
+                            <p class="mb-1">Name: John Doe</p>
+                            <p class="mb-1">Email: john@example.com</p>
+                            <p class="mb-1">Phone: +91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h6>Shipping Address</h6>
+                        <p class="mb-1">123 Green Street</p>
+                        <p class="mb-1">Mumbai, Maharashtra 400001</p>
+                        <p class="mb-1">India</p>
+                    </div>
+                    <div class="mb-4">
+                        <h6>Order Items</h6>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Eco-Friendly Water Bottle</td>
+                                    <td>₹599</td>
+                                    <td>2</td>
+                                    <td>₹1,198</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Subtotal:</strong></td>
+                                    <td>₹1,198</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Shipping:</strong></td>
+                                    <td>₹50</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                                    <td>₹1,248</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="processOrder('ORD001')">Process Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="seller-dashboard.js"></script>
+    <script>
+        function filterOrders(status) {
+            console.log('Filtering orders by status:', status);
+            // Implement order filtering
+        }
+
+        function processOrder(orderId) {
+            console.log('Processing order:', orderId);
+            // Implement order processing
+        }
+
+        function shipOrder(orderId) {
+            console.log('Shipping order:', orderId);
+            // Implement order shipping
+        }
+
+        function viewOrderDetails(orderId) {
+            console.log('Viewing order details:', orderId);
+            const orderModal = new bootstrap.Modal(document.getElementById('orderDetailsModal'));
+            orderModal.show();
+        }
+
+        function exportOrders() {
+            console.log('Exporting orders');
+            // Implement order export
+        }
+
+        function logout() {
+            // Clear session storage
+            sessionStorage.clear();
+            // Clear local storage
+            localStorage.clear();
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get seller name from session/localStorage
+            const sellerName = localStorage.getItem('sellerName') || sessionStorage.getItem('sellerName');
+            if (sellerName) {
+                document.getElementById('sellerName').textContent = sellerName;
+            }
+        });
+    </script>
+</body>
+</html>
