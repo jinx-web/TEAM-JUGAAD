@@ -1,5 +1,6 @@
 <h1>ECO ESSENTIALS</h1>
-<h2>Problem statement:</h3>
+<ul>
+<li><h2>Problem statement:</h3></li>
 <pre>As we attempt to address climate change, we took up the following problem statement:
 People are often unaware of eco-friendly businesses and practices in their vicinity.
 </pre>
@@ -31,7 +32,7 @@ People are often unaware of eco-friendly businesses and practices in their vicin
 </li>
 </ul>
 <br>
-<h2>Team members: </h2>
+<li><h2>Team members: </h2></li>
 <ul>
 <li>Prisha Gangwar(Team lead)</li>
 <li>Jignesh Giri(Technical lead)</li>
@@ -39,12 +40,13 @@ People are often unaware of eco-friendly businesses and practices in their vicin
 <li>Khushi Mittal</li>
 <li>Sujal Panda</li>
 </ul>
-<h2>Challenges and learnings:</h2>
+<li><h2>Challenges and learnings:</h2></li>
 <ul>
 <li>We faced multiple challenges throughout our journey. The most prominent of which was the process of executing and coding our ideas.</li>
 <li>Given our limited knowledge about backend website development, and the process of integration, it was difficult to execute things the way we wanted to.</li>
 <li>Despite the challenges, it was an eye-opening experience and we learnt about the skills that we need to develop for website development.</li>
 <li>We also learnt how to collaborate efficiently, and work through problems together as a team.</li>
+</ul>
 </ul>
 
 
