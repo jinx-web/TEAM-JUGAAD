@@ -1,4 +1,8 @@
 <h1>ECO ESSENTIALS</h1>
+<h2>Problem statement:</h3>
+<pre>As we attempt to address climate change, we took up the following problem statement:
+     People are often unaware of eco-friendly businesses and practices in their vicinity.
+</pre>
 <ul>
 <li>Our projects takes up the problem, and offers a solution wherein we:
 <ol><li>Provide a we-based platform for sustainable alternatives of every essentials and daily use products.</li>
@@ -22,6 +26,9 @@
 <li>Mapbox api framework</li>
 </ul>
 </li>
+<li>Database:
+<ul><li>SQlite</li></ul>
+</li>
 </ul>
 <br>
 <h2>Team members: </h2>
@@ -32,7 +39,7 @@
 <li>Khushi Mittal</li>
 <li>Sujal Panda</li>
 </ul>
-<h2>Challenges or learnings:</h2>
+<h2>Challenges and learnings:</h2>
 <ul>
 <li>We faced multiple challenges throughout our journey. The most prominent of which was the process of executing and coding our ideas.</li>
 <li>Given our limited knowledge about backend website development, and the process of integration, it was difficult to execute things the way we wanted to.</li>
