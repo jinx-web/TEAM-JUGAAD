@@ -6,6 +6,7 @@
 </li>
 </ul>
 <img src = "https://github.com/jinx-web/TEAM-JUGAAD/blob/master/eefrontpagenew.jpeg"></img>
+<br>
 <img src = "https://github.com/jinx-web/TEAM-JUGAAD/blob/master/eebuyingpage.jpeg"></img>
 <h2>Technologies used:</h2>
 <ul>
@@ -15,6 +16,23 @@
 <li>CSS</li>
 <li>HTML</li>
 </ul>
+</li>
 <li>Frameworks: 
-<ul><li>Flask/li>
+<ul><li>Flask</li>
 <li>Mapbox api framework</li>
+</ul>
+</li>
+</ul>
+<br>
+<h3>Team members: </h3>
+<ul>
+<li>Prisha Gangwar(Team lead)</li>
+<li>Jignesh Giri(Technical lead)</li>
+<li>Nayan Tiwari</li>
+<li>Khushi Mittal</li>
+<li>Sujal Panda</li>
+</ul>
+
+
+
+
