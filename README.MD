@@ -10,7 +10,7 @@
 <img src = "https://github.com/jinx-web/TEAM-JUGAAD/blob/master/eebuyingpage.jpeg"></img>
 <h2>Technologies used:</h2>
 <ul>
-<li><h3>Programming language: </h3>
+<li>Programming language: 
 <ul><li>Javascript</li>
 <li>Python</li>
 <li>CSS</li>
@@ -32,6 +32,7 @@
 <li>Khushi Mittal</li>
 <li>Sujal Panda</li>
 </ul>
+
 
 
 
