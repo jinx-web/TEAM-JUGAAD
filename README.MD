@@ -13,7 +13,7 @@ People are often unaware of eco-friendly businesses and practices in their vicin
 <img src = "https://github.com/jinx-web/TEAM-JUGAAD/blob/master/eefrontpagenew.jpeg"></img>
 <br>
 <img src = "https://github.com/jinx-web/TEAM-JUGAAD/blob/master/eebuyingpage.jpeg"></img>
-<h2>Technologies used:</h2>
+<li><h2>Technologies used:</h2></li>
 <ul>
 <li>Programming language: 
 <ul><li>Javascript</li>
