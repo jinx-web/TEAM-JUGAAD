@@ -1,7 +1,7 @@
 <h1>ECO ESSENTIALS</h1>
 <h2>Problem statement:</h3>
 <pre>As we attempt to address climate change, we took up the following problem statement:
-     People are often unaware of eco-friendly businesses and practices in their vicinity.
+People are often unaware of eco-friendly businesses and practices in their vicinity.
 </pre>
 <ul>
 <li>Our projects takes up the problem, and offers a solution wherein we:
